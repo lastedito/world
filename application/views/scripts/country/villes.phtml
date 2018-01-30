@@ -1,0 +1,27 @@
+<input type="button" value="retour à la page précédente" onClick="document.location.href = document.referrer" />
+<table border="1">
+    <caption>Les villes du pays <?php echo $this->nomPays; ?></caption>
+    <thead>
+        <tr><th></th>
+            <th>Ville</th>
+            <th>Region</th>  
+            <th>Population</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php
+        $i = 1;
+        foreach ($this->villes as $ville) :
+            ?>
+            <tr>
+                <td><?php
+                    echo $i;
+                    $i++;
+                    ?></td>
+                <td> <?php echo $ville->Name; ?> </td>
+                <td> <?php echo $ville->District ?> &nbsp;</td>
+                <td> <?php echo $ville->Population ?> &nbsp; </td>   
+            </tr>
+<?php endforeach; ?>
+    </tbody>
+</table>

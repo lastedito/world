@@ -1,0 +1,28 @@
+<input type="button" value="retour à la page précédente" onClick="document.location.href = document.referrer" />
+<table border="1">
+    <caption>Les langues parlees du pays <?php echo $this->nomPays; ?></caption>
+    <thead>
+        <tr>
+            <th>idLanguage</th>
+            <th>Langue</th>
+            <th>Officielle?</th>
+            <th>Pourcentage</th>
+            <th>autres pays</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php
+        foreach ($this->lesLangues as $langue) :
+            ?>
+            <tr>
+                <td><?php
+                    echo $langue->id;
+                    ?></td>
+                <td> <?php echo $langue->Name; ?> </td>
+                <td><?php foreach($this->lesInfosLangues as $infos){ if($langue->id===$infos->idLanguage){if($infos->IsOfficial==="T"){echo "Oui";}else echo "Non";} } ?></td>
+                <td><?php foreach($this->lesInfosLangues as $infos){ if($langue->id===$infos->idLanguage){echo $infos->Percentage;} } ?></td>
+                <td> <a href='country/langues/id/<?php echo $langue->id; ?>'>voir</a></td>
+            </tr>
+<?php endforeach; ?>
+    </tbody>
+</table>

@@ -1,0 +1,29 @@
+
+<input type="button" value="retour à la page précédente" onClick="document.location.href = document.referrer" />
+<h1>Voir tous les pays</h1>
+<table border="1">
+    <th>idPays</th>
+    <th>nom</th>
+    <th>continent</th>
+    <th>nom local</th>
+    <th>idCapitale</th>
+    <th>nom</th>
+    <th>villes</th>
+    <th>langues</th>
+    <?php foreach ($this->countries as $country) : ?>
+        <tr>
+            <td> <?php echo $country->id ?>   </td>
+            <td> <?php echo $country->Name ?>   </td>
+            <td> <?php echo $country->Continent ?>   </td>
+            <td> <?php echo $country->LocalName ?>   </td>
+            <td> <?php echo $country->Capital ?>   </td>
+            <td> <?php echo $country->getCapitale() ?>   </td>
+            <td><?php echo $country->getNbVilles() . " villes " ?>
+                <a href='country/villes/id/<?php echo $country->id; ?>'>detail</a></td>
+            <td><?php echo $country->getNbLanguesParlees() ?>
+                <a href='country/langues/id/<?php echo $country->id; ?>'>detail</a></td>
+            </td>
+
+        </tr>
+    <?php endforeach; ?>
+</table>

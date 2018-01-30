@@ -1,0 +1,22 @@
+
+<input type="button" value="retour à la page précédente" onClick="document.location.href = document.referrer" />
+<h1>Voir toutes les villes</h1>
+<table border="1">
+    <th>idVille</th>
+    <th>Ville</th>
+    <th>Région</th>
+    <th>Population</th>
+    <th>idPays</th>
+    <th>nomDuPays</th>
+    <?php foreach ($this->cities as $city) : ?>
+        <tr>
+            <td> <?php echo $city->id ?>   </td>
+            <td> <?php echo $city->Name ?>   </td>
+            <td> <?php echo $city->District ?>   </td>
+            <td> <?php echo $city->Population ?>   </td>
+            <td> <?php echo $city->idCountry ?>   </td>
+            <td> <?php echo $city->getPays() ?>   </td>
+
+        </tr>
+    <?php endforeach; ?>
+</table>
